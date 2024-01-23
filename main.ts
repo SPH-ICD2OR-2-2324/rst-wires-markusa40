@@ -97,9 +97,9 @@ function InitColours () {
 }
 function wire3 () {
     redCount = 0
-    WhiteCount = 1
-    blueCount = 2
-    for (let value of list) {
+    WhiteCount = 0
+    blueCount = 0
+    for (let value of WireList) {
         if (value == 0) {
             redCount += 1
         } else if (value == 1) {
@@ -110,12 +110,12 @@ function wire3 () {
     }
     if (redCount == 0) {
         game.splash("Cut wire 2")
-    } else if (WireList[1] == 1) {
-        game.splash("Cut wire 3")
-    } else if (WireList[0] > 1) {
+    } else if (WireList[2] == 1) {
+        game.splash("Cut Last Wire")
+    } else if (blueCount > 1) {
         game.splash("Cut Last Blue Wire")
     } else {
-        game.splash("Cut wire 3")
+        game.splash("Cut Last Wire")
     }
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
